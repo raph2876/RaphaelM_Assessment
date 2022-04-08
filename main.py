@@ -1,5 +1,17 @@
-print("I am testing out the import random here")
+# The name function is meant to ask the user for a name and store the name.
 
-import random
+def welcome():
+  print("Hello!")
+# this checks if the input is a name with only letters and no spaces. If it is not then it will ask for it to be entered again. If it is a name with only letters, then it will store the name as a variable and continue
+  while True:
+    n = input("Please enter your name: \n > ")
+    if n.isalpha():
+      break
+    else:
+      print("Please enter a name with only letters and no spaces")
+  print("Hello, {}! \n Welcome to Raphael's math quiz!".format(n))
 
-print(random.randint (0, 10))
+welcome()
+  
+
+
