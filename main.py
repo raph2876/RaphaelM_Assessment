@@ -1,4 +1,4 @@
-# The name function is meant to ask the user for a name and store the name.
+# The Welcome function is meant to ask the user for a name and store the name, then I welcome the player and give them instructions.
 
 def welcome():
   print("Welcome!")
