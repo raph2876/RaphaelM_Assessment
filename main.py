@@ -11,9 +11,9 @@ def welcome():
     else:
 #Error message
       print ("\n")
-      print("|!"*26 + "|")
+      print("|!"*25 + "|")
       print("Please enter a name with only letters and no spaces")
-      print("|!"*26 + "|")
+      print("|!"*25 + "|")
 #Welcome message
   print("|+-" *19 + "|")
   print("\n Why Hello There, {}! \n Welcome to Raphael's math quiz! \n This is a basic facts quiz that is on a time limit! \n The goal is to answer questions as quickly as posible! \n Please answer the quiz only in integers (whole numbers). \n (disclaimer: This quiz is not intended to offend anyone \n knowingly or unknowingly) \n".format(n))
