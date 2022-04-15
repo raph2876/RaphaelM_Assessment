@@ -6,14 +6,14 @@ def welcome():
 # this checks if the input is a name with only letters and no spaces. If it is not then it will ask for it to be entered again. If it is a name with only letters, then it will store the name as a variable and continue
   while True:
     n = input(" \n Please enter your name: \n --> ")
-    if n.isalpha():
+    if n.replace(" ", "").isalpha():
       break
     else:
 #Error message
       print ("\n")
-      print("|!"*25 + "|")
-      print("Please enter a name with only letters and no spaces")
-      print("|!"*25 + "|")
+      print("|!"*18 + "|")
+      print("Please enter a name with only letters")
+      print("|!"*18 + "|")
 #Welcome message
   print("|+-" *19 + "|")
   print("\n Why Hello There, {}! \n Welcome to Raphael's math quiz! \n This is a basic facts quiz that is on a time limit! \n The goal is to answer questions as quickly as posible! \n Please answer the quiz only in integers (whole numbers). \n (disclaimer: This quiz is not intended to offend anyone \n knowingly or unknowingly) \n".format(n))
