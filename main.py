@@ -30,7 +30,7 @@ def start():
 #Picks a random integer for both the numbers for the equation
     int_a = random.randint (0, 12)
     int_b = random.randint (0, 12)
-    operators = ["+", "-", "*"]
+    operators = ["+", "-", "*", "/"]
 #Sets the operator to a random operator from the list above
     operator_value = random.choice(operators)
 #Puts together the question the player will read
