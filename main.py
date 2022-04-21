@@ -1,9 +1,10 @@
 #The following lines are dedicated to imports
+import random 
 
 # The Welcome function is meant to ask the user for a name and store the name, then I welcome the player and give them instructions.
 def welcome():
   print("Welcome!")
-# this checks if the input is a name with only letters and no spaces. If it is not then it will ask for it to be entered again. If it is a name with only letters, then it will store the name as a variable and continue
+# This checks if the input is a name with only letters and no spaces. If it is not then it will ask for it to be entered again. If it is a name with only letters, then it will store the name as a variable and continue
   while True:
     n = input(" \n Please enter your name: \n --> ")
     if n.replace(" ", "").isalpha():
@@ -19,4 +20,41 @@ def welcome():
   print("\n Why Hello There, {}! \n Welcome to Raphael's math quiz! \n This is a basic facts quiz that is on a time limit! \n The goal is to answer questions as quickly as posible! \n Please answer the quiz only in integers (whole numbers). \n (disclaimer: This quiz is not intended to offend anyone \n knowingly or unknowingly) \n".format(n))
   print("|+-" *19 + "|")
 
+def start():
+#The dictionary of questions
+  questions = {}
+#Sets the score to 0
+  score = 0
+#This generates the questions
+  for i in range (10):
+#Picks a random integer for both the numbers for the equation
+    int_a = random.randint (0, 12)
+    int_b = random.randint (0, 12)
+    operators = ["+", "-", "*"]
+#Sets the operator to a random operator from the list above
+    operator_value = random.choice(operators)
+#Puts together the question the player will read
+    question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
+#Creates the answer to the question
+    answer = eval(question)
+#Adds a colon to the question the player will read
+    question += ": "
+#Adds the questions to the dictionary and assigns the answer to it
+    questions.update({question : str(answer)})
+#Asks the player if they want to start the quiz. All they need to do it press enter
+  input ("\n Please press enter when you are ready! ")
+#Repeats for the number of keys in the dictionary
+  for q in questions.keys():
+    user_answer = input(q)
+#If the answer to the question is equal to the user answer, then add a point and say that the user is correct. If not, then tell them they are incorrect and give the correct answer.
+    if questions.get(q) == str(user_answer):
+      score += 1
+      print ("You are correct!")
+    else:
+      print("Incorrect. The correct answer was {}".format(questions.get(q)))
+#shows score
+  print("You got " + str(score) + " right!")
+    
+    
 welcome()
+start()
