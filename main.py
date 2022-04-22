@@ -28,13 +28,19 @@ def start():
 #This generates the questions
   for i in range (10):
 #Picks a random integer for both the numbers for the equation
-    int_a = random.randint (0, 12)
-    int_b = random.randint (0, 12)
     operators = ["+", "-", "*", "/"]
 #Sets the operator to a random operator from the list above
     operator_value = random.choice(operators)
-#Puts together the question the player will read
-    question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
+#If the operator is divide, then the program will make sure that the answer is not a recurring number.
+    if operator_value == "/":
+      int_b = random.randint (1, 12)
+      int_a = int_b * random.randint (0, 12)
+      question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
+    else:
+#puts together the non-division question
+      int_a = random.randint (0, 12)
+      int_b = random.randint (0, 12)
+      question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
 #Creates the answer to the question
     answer = eval(question)
 #Adds a colon to the question the player will read
