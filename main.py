@@ -3,6 +3,7 @@ import random
 
 # The Welcome function is meant to ask the user for a name and store the name, then I welcome the player and give them instructions.
 def welcome():
+  global n
   print("Welcome!")
 # This checks if the input is a name with only letters and no spaces. If it is not then it will ask for it to be entered again. If it is a name with only letters, then it will store the name as a variable and continue
   while True:
@@ -34,15 +35,15 @@ def start():
 #If the operator is divide, then the program will make sure that the answer is not a recurring number.
     if operator_value == "/":
       int_b = random.randint (1, 12)
-      int_a = int_b * random.randint (0, 12)
+      int_a = int_b * random.randint (1, 12)
       question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
     else:
 #puts together the non-division question
-      int_a = random.randint (0, 12)
-      int_b = random.randint (0, 12)
+      int_a = random.randint (1, 12)
+      int_b = random.randint (1, 12)
       question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
 #Creates the answer to the question
-    answer = eval(question)
+    answer = round(eval(question))
 #Adds a colon to the question the player will read
     question += ": "
 #Adds the questions to the dictionary and assigns the answer to it
