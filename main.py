@@ -54,7 +54,7 @@ def start():
   for q in questions.keys():
     user_answer = input("\n What is " + q + "\n --> ")
 #If the answer to the question is equal to the user answer, then add a point and say that the user is correct. If not, then tell them they are incorrect and give the correct answer.
-    if questions.get(q) == str(user_answer):
+    if questions.get(q) == str(user_answer).replace(" ", ""):
       score += 1
       print ("\n")
       print ("|+" *7 + "|")
@@ -62,9 +62,9 @@ def start():
       print ("|+" *7 + "|")
     else:
       print ("\n")
-      print ("|-" * 17 + "|")
+      print ("|-" * 18 + "|")
       print("Incorrect. The correct answer was {}".format(questions.get(q)))
-      print ("|-" * 17 + "|")
+      print ("|-" * 18 + "|")
 #shows score
   print("You got " + str(score) + " right!")
     
