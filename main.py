@@ -44,24 +44,29 @@ def start():
       question = str(int_a) + " " + str(operator_value) + " " + str(int_b)
 #Creates the answer to the question
     answer = round(eval(question))
-#Adds a colon to the question the player will read
-    question += ": "
+#Adds a question mark to the question the player will read
+    question += "? "
 #Adds the questions to the dictionary and assigns the answer to it
     questions.update({question : str(answer)})
 #Asks the player if they want to start the quiz. All they need to do it press enter
   input ("\n Please press enter when you are ready! ")
 #Repeats for the number of keys in the dictionary
   for q in questions.keys():
-    user_answer = input(q)
+    user_answer = input("\n What is " + q + "\n --> ")
 #If the answer to the question is equal to the user answer, then add a point and say that the user is correct. If not, then tell them they are incorrect and give the correct answer.
     if questions.get(q) == str(user_answer):
       score += 1
+      print ("\n")
+      print ("|+" *7 + "|")
       print ("You are correct!")
+      print ("|+" *7 + "|")
     else:
+      print ("\n")
+      print ("|-" * 17 + "|")
       print("Incorrect. The correct answer was {}".format(questions.get(q)))
+      print ("|-" * 17 + "|")
 #shows score
   print("You got " + str(score) + " right!")
-    
     
 welcome()
 start()
