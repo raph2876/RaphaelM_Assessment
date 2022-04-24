@@ -28,7 +28,7 @@ def start():
 #Sets the scores to 0
   score = 0
   global high_score
-  high_score = 0
+  high_score = 99999999999999999999999999999999999999999
 #This generates the questions
   for i in range (20):
 #Picks a random integer for both the numbers for the equation
@@ -76,9 +76,24 @@ def start():
   end_time = time.time()
 #subtracts the start time from the end time to measure how long the player took to complete the quiz
   final_time = round(end_time - start_time)
-#shows score
-  print("\nCongratulations, " + str(n) + "! \nYou got " + str(score) + " right!")
-  print ("You took " + str(final_time) + " seconds to get " + str(score) + " questions correct!")
+#If the player scored something, then their score will be shown
+  if score > 0:
+    final_score = round(final_time / score)
+    print("\n" + "|+-" *15 + "|")
+    print("Congratulations, " + str(n) + "! \nYou got " + str(score) + " right!")
+    print ("You took " + str(final_time) + " seconds to get " + str(score) + " questions correct!")
+    print ("On average, you took " + str(final_score) + " seconds per correct answer!")
+#If the player achieved a new high score, then it will update
+    if final_score < high_score:
+      high_score = final_score
+      print("You got a new high score!")
+    else:
+      print("Your current high score is " + str(high_score) + " seconds per correct answer!")
+    print("|+-" *15 + "|")
+#If the player got 0 points they will recieve a different message
+  else:
+    print("\n" + str(n) + ", you did not get anything correct... \n Don't worry it though! \n You can always do this quiz again! \n I know you will do better next time!")
+
   
 welcome()
 start()
