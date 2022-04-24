@@ -25,8 +25,10 @@ def welcome():
 def start():
 #The dictionary of questions
   questions = {}
-#Sets the score to 0
+#Sets the scores to 0
   score = 0
+  global high_score
+  high_score = 0
 #This generates the questions
   for i in range (20):
 #Picks a random integer for both the numbers for the equation
@@ -73,10 +75,10 @@ def start():
 #measures time since epoch again
   end_time = time.time()
 #subtracts the start time from the end time to measure how long the player took to complete the quiz
-  final_time = end_time - start_time
+  final_time = round(end_time - start_time)
 #shows score
-  print("You got " + str(score) + " right!")
-  print ("You took" + str(final_time) + " to get" + str(score) + " correct!")
+  print("\nCongratulations, " + str(n) + "! \nYou got " + str(score) + " right!")
+  print ("You took " + str(final_time) + " seconds to get " + str(score) + " questions correct!")
   
 welcome()
 start()
