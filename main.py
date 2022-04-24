@@ -1,5 +1,6 @@
 #The following lines are dedicated to imports
-import random 
+import random
+import time
 
 # The Welcome function is meant to ask the user for a name and store the name, then I welcome the player and give them instructions.
 def welcome():
@@ -27,7 +28,7 @@ def start():
 #Sets the score to 0
   score = 0
 #This generates the questions
-  for i in range (10):
+  for i in range (20):
 #Picks a random integer for both the numbers for the equation
     operators = ["+", "-", "*", "/"]
 #Sets the operator to a random operator from the list above
@@ -48,8 +49,11 @@ def start():
     question += "? "
 #Adds the questions to the dictionary and assigns the answer to it
     questions.update({question : str(answer)})
+
 #Asks the player if they want to start the quiz. All they need to do it press enter
   input ("\n Please press enter when you are ready! ")
+  #Measures time since epoch
+  start_time = time.time()
 #Repeats for the number of keys in the dictionary
   for q in questions.keys():
     user_answer = input("\n What is " + q + "\n --> ")
@@ -65,8 +69,14 @@ def start():
       print ("|-" * 18 + "|")
       print("Incorrect. The correct answer was {}".format(questions.get(q)))
       print ("|-" * 18 + "|")
+
+#measures time since epoch again
+  end_time = time.time()
+#subtracts the start time from the end time to measure how long the player took to complete the quiz
+  final_time = end_time - start_time
 #shows score
   print("You got " + str(score) + " right!")
-    
+  print ("You took" + str(final_time) + " to get" + str(score) + " correct!")
+  
 welcome()
 start()
