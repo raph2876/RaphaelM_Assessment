@@ -19,7 +19,7 @@ def welcome():
       print("|!"*18 + "|")
 #Welcome message
   print("|+-" *19 + "|")
-  print("\n Why Hello There, {}! \n Welcome to Raphael's math quiz! \n This is a basic facts quiz that will time you! \n The goal is to answer questions as quickly as posible! \n Please answer the quiz only in integers (whole numbers). \n (disclaimer: This quiz is not intended to offend anyone \n knowingly or unknowingly) \n".format(n))
+  print("\n Why Hello There, {}! \n Welcome to Raphael's math quiz! \n This is a basic facts quiz that will time you! \n The goal is to answer 20 questions as quickly as posible! \n Please answer the quiz only in integers (whole numbers). \n (disclaimer: This quiz is not intended to offend anyone \n knowingly or unknowingly) \n".format(n))
   print("|+-" *19 + "|")
 
 def start():
@@ -99,30 +99,31 @@ def quiz():
   else:
     print("\n" + str(n) + ", you did not get anything correct... \n Don't worry about it though! \n You can always do this quiz again! \n I know you will do better next time!")
 
-def customize():
+def customise():
   while True:
     try:
 #Ask the user to enter a difficulty
       difficulty = input("\nWhat would you like the difficulty set to? \n(the number you enter will be the the maximum number \nthat is added, subtracted from or multiplied by in the quiz) \nMinimum number is 4 \n--> ")
-#If the difficulty is larger than 0, there will be an error message, and if the difficulty is not an integer, there will also be an error message
+#If the number is larger than 3, then the user is allowed to continue. If they not not answer a number larger than 3, they will get an error message
       difficulty = int(difficulty)
-      if difficulty > 4:
+      if difficulty > 3:
         break
       else:
         print("\n")
-        print("|!" * 21 + "|")
-        print("Please answer with a number larger than 4")
-        print("|!" * 21 + "|")
-
+        print("|!" * 20 + "|")
+        print("Please answer with a number larger than 3")
+        print("|!" * 20 + "|")
     except ValueError:
       print("\n")
       print("|!" * 21 + "|")
       print("Please enter a valid integer (full  number)")
       print("|!" * 21 + "|")
   print("Great!")
+  
   #The dictionary of questions
   global questions
   questions = {}
+  global score
   score = 0
 #This generates the questions
   while len(questions) < 20:
@@ -149,9 +150,9 @@ def customize():
 #do the quiz again
   quiz()
 #do the customisation phase again
-  customize()
+  customise()
     
 welcome()
 start()
 quiz()
-customize()
+customise()
